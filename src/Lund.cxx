@@ -1,7 +1,7 @@
 #include "../include/Lund.h"
 void Lund() {
     
-    // The following code reads the CSV file 
+    // ================== The following code reads the cleaned CSV file =========================
     string line;
     vector<string> DataStore;
     vector<string> Date;
@@ -30,21 +30,23 @@ void Lund() {
         Quality.push_back(DataStore[4*i + 3]);
         i += 1;
     } 
-    
+    // ==========================================================================================
+
     // Seeing what the different vector look like
     // for (int j = 0; j < 5; j++) {
     //     cout << Date[j] << " " << Time[j] << " " << Air_Temp[j] << " " <<  Quality[j] << endl;
     // }
 
-    // Get data for the start and end of year 1986, because that is when Chernoboly disaster occured
-    vector<string> year_1986;
-    // vector<double> temp_1986;
-    int length = Date.size();
-    double temp_temp = 0;
-    int target_year = 1986;
-    vector<double> avg_temp;
-    
+    // ===================== Extract data correspoinding to year 1986 =============================
 
+    vector<string> year_1986; // This is where we want to store all the dates for the year 1986
+    int length = Date.size(); 
+    double temp_temp = 0; // Temparary varible used for taking averages of daily temp.
+    int target_year = 1986;
+    vector<double> avg_temp; // This is where we want to store all the daily avg temperatures
+    
+    // Loops through the Date vector (which contains all the dates) and takes the avg of the daily temperatures
+    // if that day is in the year 1986. For each day we have three measurements thus the avg divides by 3.
     for (int j = 0; j < length; j++) {
         int current_year = std::stoi(Date[j]);
         if (current_year == target_year) {
@@ -57,7 +59,7 @@ void Lund() {
         }
     }
     int data_length = year_1986.size();
-    int chernobyl_index;
+    int chernobyl_index; // The index in our extracted data that corresponds to day of Chernobyl disaster
     // Testing the extracted data for year 
     for (int j = 0; j < data_length; j++) {
         // cout << "Date " << year_1986[j] << " Avg Temp for that day " << avg_temp[j] << endl;
@@ -65,24 +67,24 @@ void Lund() {
             chernobyl_index = j;
         }
     }
+    // ============================================================================================
 
 
+    // ============================== Making the plot ===============================================
+    
+    // Creating empty histogram
     TH2D* hist2D = new TH2D("hist2D", "Daily Tempreature of Year 1986; Day of year; Temperature [#circC]", data_length, 0, 357, 50, -20, 30);
 
+    // Filling the histogram with extracted data
     for (int j = 0; j < 358; j++) {
-        // if (i%30 == 0) {
-        //     hist2D->GetXaxis()->SetBinLabel(i+1, Form("%d", date));
-        // }
         hist2D->Fill(j, avg_temp[j]);
     }
 
-    //vector<string> months{"Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"};
-
+    // Plotting the histogram on a canvas
     TCanvas* c2 = new TCanvas("c2", "2D Plot", 900, 600);
     gStyle->SetOptStat(0); //Removes the histogram info
     hist2D->SetMarkerStyle(20);
     hist2D->Draw();
 
-    //cout << chernobyl_index << " " << year_1986[chernobyl_index] << " " << avg_temp[chernobyl_index] << endl;
-
+    // ===============================================================================================
 }
