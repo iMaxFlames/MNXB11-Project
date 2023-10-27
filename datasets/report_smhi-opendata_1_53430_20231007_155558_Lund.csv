@@ -1,8 +1,14 @@
+   file clean1_smhi-opendata_1_140480_20231007_155326_Umea.csv has size: 13077041
    file clean1_smhi-opendata_1_53430_20231007_155558_Lund.csv has size: 6397569
+   file clean2_smhi-opendata_1_140480_20231007_155326_Umea.csv has size: 13075982
    file clean2_smhi-opendata_1_53430_20231007_155558_Lund.csv has size: 6396510
+   file original_smhi-opendata_1_140480_20231007_155326_Umea.csv has size: 13077597
    file original_smhi-opendata_1_53430_20231007_155558_Lund.csv has size: 6398178
+   file rawdata_smhi-opendata_1_140480_20231007_155326_Umea.csv has size: 13075982
    file rawdata_smhi-opendata_1_53430_20231007_155558_Lund.csv has size: 6396510
-   file report_smhi-opendata_1_53430_20231007_155558_Lund.csv has size: 323
+   file rawdata_smhi-opendata_1_97530_20231007_155803_Uppsala.csv has size: 15363191
+   file report_smhi-opendata_1_140480_20231007_155326_Umea.csv has size: 483
+   file report_smhi-opendata_1_53430_20231007_155558_Lund.csv has size: 816
    file smhi-opendata_1_105370_20231007_154742_Falun.csv has size: 4526151
    file smhi-opendata_1_140480_20231007_155326_Umea.csv has size: 13077597
    file smhi-opendata_1_162860_20231007_155220_Lulea.csv has size: 15550488
