@@ -73,7 +73,7 @@ void Lund() {
     // ============================== Making the plot ===============================================
     
     // Creating empty histogram
-    TH2D* hist2D = new TH2D("hist2D", "Daily Tempreature of Year 1986; Day of year; Temperature [#circC]", data_length, 0, 357, 50, -20, 30);
+    TH2D* hist2D = new TH2D("hist2D", "Daily Temperature of Year 1986; Day of year; Temperature [#circC]", data_length, 0, 357, 50, -20, 30);
 
     // Filling the histogram with extracted data
     for (int j = 0; j < 358; j++) {
